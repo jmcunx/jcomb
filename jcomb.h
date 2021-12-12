@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 ... 2020 2021
+ * Copyright (c) 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -17,7 +17,7 @@
 
 #ifndef JCOMB_H
 
-#define JCOMB_H "$Id: jcomb.h,v 3.3 2020/06/14 16:46:25 jmccue Exp $"
+#define JCOMB_H "INCLUDED"
 
 #define PROG_NAME  "jcomb"
 
@@ -64,5 +64,3 @@ void close_in(FILE **, char *);
 char *get_progname(char *, char *);
 
 #endif /*  JCOMB_H  */
-
-/******************************* END: jcomb.h ********************************/

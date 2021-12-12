@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 ... 2020 2021
+ * Copyright (c) 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -14,10 +14,10 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-/*
-* COMBines split binary files created by j into one file
-*/
+
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 
 #include <stdio.h>
 #include <string.h>
@@ -34,57 +34,11 @@
 
 #include "jcomb.h"
 
-int do_file(char *, struct s_work *);
-
-char *jcomb_c="$Id: jcomb.c,v 3.11 2021/02/21 19:30:27 jmccue Exp $";
-
 #define FFMT 15
 
 /*
-* main()
-*/
-int main(int argc, char **argv)
-{
-  jm_counter i;
-  char fname[FFMT];
-  struct s_work w;
-
-#ifdef OpenBSD
-  if (pledge("stdio rpath wpath cpath",NULL) == -1)
-    err(1,"pledge\n");
-#endif
-
-  init(argc, argv, &w);
-
-  for (i = 1; i <= (jm_counter) JS_MAX_SPLIT; i++)
-    {
-      snprintf(fname, FFMT, JS_FNAME, i);
-      if (do_file(fname, &w) != 0)
-	{
-	  if (w.verbose)
-	    fprintf(w.err.fp, MSG_INFO_I008, fname);
-	  break;
-	}
-    }
-
-  close_out(&(w.out));
-  if (w.num_files == 0)
-    {
-      fprintf(w.err.fp, MSG_ERR_E000, w.prog_name, SWITCH_CHAR, ARG_HELP);
-      close_out(&(w.err));
-      exit(EXIT_FAILURE);
-    }
-  else
-    {
-      close_out(&(w.err));
-      exit(EXIT_SUCCESS);
-    }
-
-}  /* main() */
-
-/*
-* do_file() -- Process a split file
-*/
+ * do_file() -- Process a split file
+ */
 int do_file(char *ifile, struct s_work *w)
 {
   FILE *ifp;
@@ -126,4 +80,44 @@ int do_file(char *ifile, struct s_work *w)
 
 } /* do_file() */
 
-/* END: jcomb.c */
+/*
+ * main()
+ */
+int main(int argc, char **argv)
+{
+  jm_counter i;
+  char fname[FFMT];
+  struct s_work w;
+
+#ifdef OpenBSD
+  if (pledge("stdio rpath wpath cpath",NULL) == -1)
+    err(1,"pledge\n");
+#endif
+
+  init(argc, argv, &w);
+
+  for (i = 1; i <= (jm_counter) JS_MAX_SPLIT; i++)
+    {
+      snprintf(fname, FFMT, JS_FNAME, i);
+      if (do_file(fname, &w) != 0)
+	{
+	  if (w.verbose)
+	    fprintf(w.err.fp, MSG_INFO_I008, fname);
+	  break;
+	}
+    }
+
+  close_out(&(w.out));
+  if (w.num_files == 0)
+    {
+      fprintf(w.err.fp, MSG_ERR_E000, w.prog_name, SWITCH_CHAR, ARG_HELP);
+      close_out(&(w.err));
+      exit(EXIT_FAILURE);
+    }
+  else
+    {
+      close_out(&(w.err));
+      exit(EXIT_SUCCESS);
+    }
+
+}  /* main() */

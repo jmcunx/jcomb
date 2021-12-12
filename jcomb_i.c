@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 ... 2020 2021
+ * Copyright (c) 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -19,7 +19,9 @@
  * jcomb_i.c -- Initialization Routines
  */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -30,9 +32,6 @@
 #include <j_lib2m.h>
 
 #include "jcomb.h"
-
-/*** globals ***/
-char *jcomb_i_c="$Id: jcomb_i.c,v 3.4 2021/02/21 19:30:27 jmccue Exp $";
 
 /*
  * init_w() -- initialize work area
@@ -64,5 +63,3 @@ void init(int argc, char **argv, struct s_work *w)
   process_arg(argc, argv, w);
 
 }  /* init() */
-
-/* END: jcomb_i.c */

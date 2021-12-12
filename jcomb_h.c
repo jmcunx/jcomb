@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 ... 2020 2021 
+ * Copyright (c) 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -17,9 +17,11 @@
 
 /*
  * jcomb_h.c -- Show/help routines
-*/
+ */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -28,14 +30,6 @@
 #include <j_lib2m.h>
 
 #include "jcomb.h"
-
-char *jcomb_h_c="$Id: jcomb_h.c,v 3.7 2021/02/21 19:30:27 jmccue Exp $";
-
-extern char *jcomb_c;
-extern char *jcomb_a_c;
-extern char *jcomb_i_c;
-extern char *jcomb_h_c;
-extern char *jcomb_u_c;
 
 /*** Messages ***/
 #define MSG_HELP_11 "    Combines Files created by jsplit(local) into file 'FILE'"
@@ -75,19 +69,8 @@ int show_rev(FILE *fp, char *pname)
 {
 
   fprintf(fp,"%s %s:\n", pname, LIT_REV);
-  fprintf(fp,"\t%s\n", JCOMB_H);
-  fprintf(fp,"\t%s\n", jcomb_c);
-  fprintf(fp,"\t%s\n", jcomb_a_c);
-  fprintf(fp,"\t%s\n", jcomb_h_c);
-  fprintf(fp,"\t%s\n", jcomb_i_c);
-  fprintf(fp,"\t%s\n", jcomb_u_c);
 #ifdef J_LIB2_H
-  fprintf(fp, "\t%s\n", J_LIB2_H);
-  fprintf(fp,"\t     %s %s\n", LIT_INFO_02, j2_get_build());
-#endif
-
-#ifdef J_LIB2M_H
-  fprintf(fp, "\t%s\n", J_LIB2M_H);
+  fprintf(fp,"\t%s %s\n", LIT_INFO_02, j2_get_build());
 #endif
 
 #ifdef OSTYPE
@@ -101,5 +84,3 @@ int show_rev(FILE *fp, char *pname)
   return(EXIT_FAILURE);
 
 }  /* show_rev() */
-
-/* END: jcomb_h.c */

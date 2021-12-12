@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 ... 2020 2021
+ * Copyright (c) 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -16,10 +16,12 @@
  */
 
 /*
-* jcomb_u.c -- common routines
-*/
+ * jcomb_u.c -- common routines
+ */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,8 +31,6 @@
 #include <j_lib2m.h>
 
 #include "jcomb.h"
-
-char *jcomb_u_c="$Id: jcomb_u.c,v 3.5 2021/02/21 19:30:27 jmccue Exp $";
 
 /*
  * close_in() -- Close an input file
@@ -113,5 +113,3 @@ void init_finfo(struct s_file_info *f)
   f->fname = (char *) NULL;
 
 } /* init_finfo() */
-
-/* END: jcomb_u.c */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 ... 2020 2021
+ * Copyright (c) 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -19,7 +19,9 @@
 * jcomb_a.c -- parse argument Routines
 */
 
+#ifndef _MSDOS
 #include <sys/param.h>
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -32,11 +34,6 @@
 #include "jcomb.h"
 
 #define SFMT 80
-
-/*** types and globals ***/
-char *jcomb_a_c="$Id: jcomb_a.c,v 3.6 2021/02/21 19:30:27 jmccue Exp $";
-
-/*** prototypes ***/
 
 /*
  * process_arg() -- process arguments
@@ -126,5 +123,3 @@ void process_arg(int argc, char **argv, struct s_work *w)
     }
 
 } /* process_arg() */
-
-/* jcomb_a.c */

@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 2014 2015 2016 2017 2018 
+.\" Copyright (c) 2014 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -14,7 +14,7 @@
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\" 
-.TH jcomb 1 "$Date: 2020/09/23 17:19:16 $" "JMC" "User Commands"
+.TH jcomb 1 "2020/09/23" "JMC" "User Commands"
 .SH NAME
 jcomb - Combine Files
 .SH SYNOPSIS
