@@ -1,7 +1,8 @@
 ## jcomb -- Combine Files
 
-jcomb will combine files created by jsplit(1) and obsolete
-utility j(1).
+jcomb will combine files created by
+[jsplit(1)](https://github.com/jmcunx/jsplit)
+and obsolete utility j(1).
 
 This was created for Systems that do not have
 an easy method of concatenating Files.
