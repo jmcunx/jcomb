@@ -118,11 +118,15 @@ int main(int argc, char **argv)
     {
       fprintf(w.err.fp, MSG_ERR_E000, w.prog_name, SWITCH_CHAR, ARG_HELP);
       close_out(&(w.err));
+      if (w.prog_name != (char *) NULL)
+	free(w.prog_name);
       exit(EXIT_FAILURE);
     }
   else
     {
       close_out(&(w.err));
+      if (w.prog_name != (char *) NULL)
+	free(w.prog_name);
       exit(EXIT_SUCCESS);
     }
 
