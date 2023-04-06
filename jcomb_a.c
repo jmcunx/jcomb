@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 ... 2021 2022
+ * Copyright (c) 2001 2002 ... 2023 2024
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -16,8 +16,8 @@
  */
 
 /*
-* jcomb_a.c -- parse argument Routines
-*/
+ * jcomb_a.c -- parse argument Routines
+ */
 
 #ifndef _MSDOS
 #include <sys/param.h>
@@ -28,8 +28,11 @@
 #include <unistd.h>
 #include <ctype.h>
 #include <errno.h>
+
+#ifdef HAVE_JLIB
 #include <j_lib2.h>
 #include <j_lib2m.h>
+#endif
 
 #include "jcomb.h"
 
